@@ -1,51 +1,47 @@
-// 1
-const sum = (a, b) => {
+// 01
+var solveMeFirst = (a, b) => {
     return a + b;
 }
 
-// 2
-const multiply = (a, b) => {
+// 02
+var multiply = (a, b) => {
     return a * b;
 }
 
-// 3
-const oddEven = (num) => {
-    if (num % 2 === 0) {
-        console.log('Even');
+// 03
+var evenOrOdd = (number) => {
+    if (number % 2 === 0) {
+        return 'Even';
     } else {
-        console.log('Odd');
+        return 'Odd';
     }
 }
 
-// 4
-const returnNegative = (num) => {
-    if (num > 0) {
-        return -num;
+// 04
+var makeNegative = (number) => {
+    if (number > 0) {
+        return -number;
     } else {
-        return num;
+        return number;
     }
 }
 
-// 5
-const returnPositive = (num) => {
-    if (num < 0) {
-        return -num;
-    } else {
-        return num;
-    }
+// 05
+var opposite = (number) => {
+    return -number;
 }
 
-// 6
-const sumArray = (arr) => {
+// 06
+var simpleArraySum = (ar) => {
     let sum = 0;
-    for (let i = 0; i < arr.length; i++) {
-        sum += arr[i];
+    for (let i = 0; i < ar.length; i++) {
+        sum += ar[i];
     }
     return sum;
 }
 
-// 7
-const sleepIn = (weekday, vacation) => {
+// 07
+var sleepIn = (weekday, vacation) => {
     if (!weekday || vacation) {
         return true;
     } else {
@@ -53,8 +49,8 @@ const sleepIn = (weekday, vacation) => {
     }
 }
 
-// 8
-const monkeyTrouble = (aSmile, bSmile) => {
+// 08
+var monkeyTrouble = (aSmile, bSmile) => {
     if (aSmile && bSmile || !aSmile && !bSmile) {
         return true;
     } else {
@@ -62,8 +58,8 @@ const monkeyTrouble = (aSmile, bSmile) => {
     }
 }
 
-// 9
-const sumDouble = (a, b) => {
+// 09
+var sumDouble = (a, b) => {
     if (a === b) {
         return 2 * (a + b);
     } else {
@@ -72,7 +68,7 @@ const sumDouble = (a, b) => {
 }
 
 // 10
-const diff21 = (n) => {
+var diff21 = (n) => {
     if (n <= 21) {
         return 21 - n;
     } else {
@@ -81,7 +77,7 @@ const diff21 = (n) => {
 }
 
 // 11
-const parrotTrouble = (talking, hour) => {
+var parrotTrouble = (talking, hour) => {
     if (talking && (hour < 7 || hour > 20)) {
         return true;
     } else {
@@ -90,7 +86,7 @@ const parrotTrouble = (talking, hour) => {
 }
 
 // 12
-const makes10 = (a, b) => {
+var makes10 = (a, b) => {
     if (a === 10 || b === 10 || a + b === 10) {
         return true;
     } else {
@@ -99,7 +95,7 @@ const makes10 = (a, b) => {
 }
 
 // 13
-const nearHundred = (n) => {
+var nearHundred = (n) => {
     if ((Math.abs(100 - n) <= 10) || (Math.abs(200 - n) <= 10)) {
         return true;
     } else {
@@ -108,7 +104,7 @@ const nearHundred = (n) => {
 }
 
 // 14
-const posNeg = (a, b, negative) => {
+var posNeg = (a, b, negative) => {
     if (negative) {
         return a < 0 && b < 0;
     } else {
@@ -117,7 +113,7 @@ const posNeg = (a, b, negative) => {
 }
 
 // 15
-const notString = (str) => {
+var notString = (str) => {
     if (str.startsWith('not')) {
         return str;
     } else {
@@ -126,7 +122,7 @@ const notString = (str) => {
 }
 
 // 16
-const compareTriplets = (a, b) => {
+var compareTriplets = (a, b) => {
     let scoreA = 0;
     let scoreB = 0;
 
@@ -141,6 +137,113 @@ const compareTriplets = (a, b) => {
     return [scoreA, scoreB];
 }
 
-console.log(compareTriplets([5, 6, 7], [3, 6, 10]));
+// 17
+var aVeryBigSum = (ar) => {
+    let sum = 0;
+    for (let i = 0; i < ar.length; i++) {
+        sum += ar[i];
+    }
+    return sum;
+}
 
+// 18
+var staircase = (n) => {
+    let result = '';
+    for (let i = 1; i <= n; i++) {
+        let spaces = ' '.repeat(n - i);
+        let hashes = '#'.repeat(i);
+        if (i === n) {
+            result += spaces + hashes;
+        } else {
+            result += spaces + hashes + '\n';
+        }
+    }
+    return result;
+}
 
+// 19
+var gradingStudents = (grades) => {
+    let result = [];
+    for (let i = 0; i < grades.length; i++) {
+        let grade = grades[i];
+        if (grade < 38) {
+            result.push(grade);
+        } else {
+            let nextMultiple = Math.ceil(grade / 5) * 5;
+            if (nextMultiple - grade < 3) {
+                result.push(nextMultiple);
+            } else {
+                result.push(grade);
+            }
+        }
+    }
+    return result;
+}
+
+// 20
+var timeConversion = (s) => {
+    let period = s.slice(-2);
+    let time = s.slice(0, -2);
+    let parts = time.split(':');
+    let hour = parseInt(parts[0]);
+
+    if (period === 'AM') {
+        if (hour === 12) {
+            hour = 0;
+        }
+    } else {
+        if (hour !== 12) {
+            hour = hour + 12;
+        }
+    }
+
+    let hourStr = hour.toString().padStart(2, '0');
+    return hourStr + ':' + parts[1] + ':' + parts[2];
+}
+
+// 21
+var repeatStr = (n, s) => {
+    let result = '';
+    for (let i = 0; i < n; i++) {
+        result += s;
+    }
+    return result;
+}
+
+// 22
+var solution = (str) => {
+    let result = '';
+    for (let i = str.length - 1; i >= 0; i--) {
+        result += str[i];
+    }
+    return result;
+}
+
+// 23
+var positiveSum = (arr) => {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > 0) {
+            sum += arr[i];
+        }
+    }
+    return sum;
+}
+
+// 24
+var summation = (num) => {
+    let sum = 0;
+    for (let i = 1; i <= num; i++) {
+        sum += i;
+    }
+    return sum;
+}
+
+// 25
+var booleanToString = (b) => {
+    if (b) {
+        return 'true';
+    } else {
+        return 'false';
+    }
+}
